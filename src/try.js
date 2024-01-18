@@ -7,7 +7,7 @@
  * **If a error occurred, the result is undefined**.
  * If there's not a error, error will be null and the result will be defined.
  *
- * @typedef {[Error, undefined] | [null, R]} WrappedResult<R>
+ * @typedef {[R, null] | [undefined, Error]} WrappedResult<R>
  * @template R
  */
 
@@ -52,10 +52,10 @@ function tryAsync(func) {
 	 */
 	return async (...args) => {
 		try {
-			return [null, await func(...args)];
+			return [await func(...args), null];
 		}
 		catch (error) {
-			if (error instanceof Error) return [error, undefined];
+			if (error instanceof Error) return [undefined, error];
 
 			const errObj = new Error(error?.toString
 				// eslint-disable-next-line @typescript-eslint/no-base-to-string
@@ -63,7 +63,7 @@ function tryAsync(func) {
 				: 'Could not stringify error',
 			{ cause: { value: error } });
 
-			return [errObj, undefined];
+			return [undefined, errObj];
 		}
 	};
 }
@@ -108,10 +108,10 @@ function trySync(func) {
 	 */
 	return (...args) => {
 		try {
-			return [null, func(...args)];
+			return [func(...args), null];
 		}
 		catch (error) {
-			if (error instanceof Error) return [error, undefined];
+			if (error instanceof Error) return [undefined, error];
 
 			const errObj = new Error(error?.toString
 				// eslint-disable-next-line @typescript-eslint/no-base-to-string
@@ -119,7 +119,7 @@ function trySync(func) {
 				: 'Could not stringify error',
 			{ cause: { value: error } });
 
-			return [errObj, undefined];
+			return [undefined, errObj];
 		}
 	};
 }

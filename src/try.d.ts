@@ -6,7 +6,7 @@
  * **If a error occurred, the result is undefined**.
  * If there's not a error, error will be null and the result will be defined.
  */
-type WrappedResult<R> = [Error, undefined] | [null, R];
+type WrappedResult<R> = [R, null] | [undefined, Error];
 
 /**
  * The returned function from {@link tryAsync}.
