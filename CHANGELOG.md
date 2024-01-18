@@ -1,5 +1,11 @@
 # lilbetter.js
 
+## 0.1.0
+
+### Minor Changes
+
+- ecfbfc7: Created the tryAsync (tryA) and trySync (tryS) functions, said can be used for wrapping and calling functions that can throw error. Said error can then be handled using in a Go-like fashion.
+
 ## 0.0.3
 
 ### Patch Changes
