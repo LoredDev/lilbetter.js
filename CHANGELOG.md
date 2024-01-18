@@ -1,5 +1,11 @@
 # lilbetter.js
 
+## 0.0.3
+
+### Patch Changes
+
+- 138dc21: Populated package.json
+
 ## 0.0.2
 
 ### Patch Changes
