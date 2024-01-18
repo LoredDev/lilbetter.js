@@ -1,5 +1,23 @@
 
+/**
+ * The WrappedResult type returned by the wrapped function in {@link trySync}
+ * and {@link tryAsync}.
+ *
+ * **If a error occurred, the result is undefined**.
+ * If there's not a error, error will be null and the result will be defined.
+ */
 type WrappedResult<R> = [Error, undefined] | [null, R];
+
+/**
+ * The returned function from {@link tryAsync}.
+ *
+ * @param  args - The arguments of the function.
+ * - The arguments of the wrapped function.
+ * @returns
+ * - The final tuple containing the Error object (if one occured) and the resulting value.
+ */
+type WrappedAsyncFunction<F> = (...args: Parameters<F>) =>
+Promise<WrappedResult<Awaited<ReturnType<F>>>>;
 
 /**
  * Function-sugar/Syntax-sugar for handling functions that can throw errors. Wrapping then
@@ -27,8 +45,18 @@ function tryAsync<
 		? ReturnType<F>
 		: Promise<ReturnType<F>>
 	),
->(func: F): (...args: Parameters<F>) =>
-Promise<WrappedResult<Awaited<ReturnType<F>>>>;
+>(func: F): WrappedAsyncFunction<F>;
+
+/**
+ * The returned function from {@link trySync}.
+ *
+ * @param args
+ * - The arguments of the wrapped function.
+ * @returns
+ * - The final tuple containing the Error object (if one occured) and the resulting value.
+ */
+type WrappedFunction<F> = (...args: Parameters<F>) =>
+WrappedResult<ReturnType<F>>;
 
 /**
  * Function-sugar/Syntax-sugar for handling functions that can throw errors. Wrapping then
@@ -53,9 +81,12 @@ Promise<WrappedResult<Awaited<ReturnType<F>>>>;
  */
 function trySync<
 	F extends (...args: Parameters<F>) => ReturnType<F>,
->(func: F): (...args: Parameters<F>) => WrappedResult<ReturnType<F>>;
+>(func: F): WrappedFunction<F>;
 
 export {
+	type WrappedAsyncFunction,
+	type WrappedFunction,
+	type WrappedResult,
 	tryAsync as tryA,
 	tryAsync,
 	trySync as tryS,
