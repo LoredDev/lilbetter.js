@@ -1,6 +1,3 @@
 
-interface Test {
-	name: string,
-}
+export * from './try.d.ts';
 
-export default Test;

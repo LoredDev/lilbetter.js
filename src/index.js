@@ -1,5 +1,3 @@
-/*
- * Placeholder file
- */
-// eslint-disable-next-line no-console
-console.log('Hello, world!');
+
+export * from './try.js';
+

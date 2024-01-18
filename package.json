@@ -12,9 +12,16 @@
 		"url": "https://github.com/LoredDev/lilbetter.js"
 	},
 	"exports": {
-		"import": "./src/index.js",
-		"default": "./src/index.js",
-		"types": "./src/index.d.ts"
+		".": {
+			"import": "./src/index.js",
+			"default": "./src/index.js",
+			"types": "./src/index.d.ts"
+		},
+		"./try": {
+			"import": "./src/try.js",
+			"default": "./src/try.js",
+			"types": "./src/try.d.ts"
+		}
 	},
 	"files": [
 		"./src/**/*.js",
