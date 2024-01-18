@@ -1,23 +1,25 @@
 {
-  "compilerOptions": {
-    "checkJs": true,
-    "allowJs": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "strict": true,
-    "module": "ES2022",
-    "target": "ES2022",
-    "alwaysStrict": true
-  },
-  "include": [
-    "./src/**/*.js",
-    "./eslint.config.js"
-  ],
-  "exclude": [
-    "./node_modules/**",
-    ".dist"
-  ]
+	"compilerOptions": {
+		"checkJs": true,
+		"allowJs": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"moduleResolution": "node",
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		"module": "ES2022",
+		"target": "ES2022",
+		"alwaysStrict": true
+	},
+	"include": [
+		"./src/**/*.js",
+		"./test/**/*.js",
+		"./eslint.config.js",
+		"./commitlint.config.cjs"
+	],
+	"exclude": [
+		"./node_modules/**",
+		".dist"
+	]
 }
