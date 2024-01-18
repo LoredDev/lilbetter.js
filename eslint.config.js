@@ -1,3 +1,4 @@
+// eslint-disable-next-line n/no-unpublished-import
 import { configs, defineConfig, presets } from '@eslegant/js';
 
 export default defineConfig([
