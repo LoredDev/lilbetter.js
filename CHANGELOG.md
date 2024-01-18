@@ -1,5 +1,11 @@
 # lilbetter.js
 
+## 0.0.2
+
+### Patch Changes
+
+- 4bf4326: Fix github workflow
+
 ## 0.0.1
 
 ### Patch Changes
